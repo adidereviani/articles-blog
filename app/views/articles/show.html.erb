@@ -1,0 +1,23 @@
+<h1>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</h1>
+
+<p>
+  <strong>Body:</strong>
+  <%= @article.body %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @article.user.email %>
+</p>
+
+
+<%= link_to 'Back', articles_path %>
+<% if @article.user == current_user %> |
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to "Destroy", article_path(@article),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+<% end %>
